@@ -1,0 +1,49 @@
+.logo {
+    padding-top: 30px;
+    display: flex;
+    margin: auto;
+    height: 120px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    padding: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.menu nav li {
+    list-style: none;
+}
+
+.menu a:hover {
+    color: #5d16ec;
+}
+
+/*.account {
+    display: flex;
+    position: absolute;
+    padding-top: 0%;
+    right: 0px;
+    transform: scale(0.2);
+}
+
+.cart {
+    display: flex;
+    position: absolute;
+    padding-top: 0%;
+    right: 75px;
+    transform: scale(0.1);
+}*/
