@@ -1,7 +1,9 @@
 How to use the project ?
 
-1) npm install react-router-dom
+1) git clone https://github.com/louthomas94/e-commerce.git
 
-2) npx create-react-app tapistherapy
+2) npm install react-router-dom
 
-3) npm start
+3) npx create-react-app tapistherapy
+
+4) npm start
