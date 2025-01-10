@@ -7,7 +7,8 @@ const Footer = () => {
       <nav>
         <li>
           <a href="/">Accueil</a> <br />
-          <a href="/boutique">Boutique en ligne</a>
+          <a href="/boutique">Boutique en ligne</a> <br />
+          <a href="/contact">Contact</a>
         </li>
       </nav>
       <p>Tout droit reservé</p>
