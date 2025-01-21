@@ -9,7 +9,7 @@ const HomePage = () => {
         <img className='hometapis' src={PhotoTapis} alt='tapis tufté' />
         <h2 className='hometitre'>Bienvenue dans <br /> l'univers du Tufting</h2>
         <p className='hometext'>Envie d'ajouter une touche de douceur et de créativité à votre <br /> quotidien ? Je vous invite à découvrir mes créations uniques <br /> faites à la main</p>
-        <a href="/boutique"><button className='button'>Découvrir</button></a>
+        <a href="/boutique" className='button'>Découvrir</a>
       </section>
     </div>
   );
