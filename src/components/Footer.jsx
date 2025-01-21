@@ -6,8 +6,8 @@ const Footer = () => {
     <footer>
       <nav>
         <li>
-          <a href="/">Accueil</a> <br />
-          <a href="/boutique">Boutique en ligne</a> <br />
+          <a href="/">Accueil</a>
+          <a href="/boutique">Boutique en ligne</a>
           <a href="/contact">Contact</a>
         </li>
       </nav>

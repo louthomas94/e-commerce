@@ -3,15 +3,20 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: absolute;
-    bottom: 0;
     width: 100%;
 }
 
 footer nav {
-    display: flex;
-    padding-left: 100px;
     list-style: none;
+}
+
+footer nav li {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: fit-content;
+    width: fit-content;
+    padding-left: 200px;
 }
 
 footer nav a {
