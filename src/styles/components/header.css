@@ -41,7 +41,7 @@ header > * {
     border-bottom: 2px solid #5d16ec;
 }
 
-a.connexion {
+a.Mconnexion {
     height: fit-content;
     width: fit-content;
     text-decoration: none;
@@ -56,7 +56,7 @@ a.connexion {
     padding: 10px;
 }
 
-.connexion:hover {
+.Mconnexion:hover {
     background-color: white;
     color: #5d16ec;
     border-color: #5d16ec;

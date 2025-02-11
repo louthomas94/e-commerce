@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-a.button {
+.homebutton {
     height: fit-content;
     width: fit-content;
     text-decoration: none;
@@ -31,7 +31,7 @@ a.button {
     margin-left: 44%;
 }
 
-.button:hover {
+.homebutton:hover {
     background-color: black;
     color: white;
     border-color: white;
