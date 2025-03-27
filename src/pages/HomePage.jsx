@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/pages/homepage.css";
 import Marquee from "react-fast-marquee";
+import IMG from "../assets/homepage/photo_home.png";
 
 const HomePage = () => {
   const products = [
@@ -51,14 +52,24 @@ const HomePage = () => {
 
   return (
     <div>
-      <section className="présentation">
-        <h2 className="hometitre">Bienvenue dans <br /> l'univers du Tufting</h2>
-        <p className="hometext">
-          Envie d'ajouter une touche de douceur et de créativité à votre <br />
-          quotidien ? Je vous invite à découvrir mes créations uniques <br />
-          faites à la main.
-        </p>
-        <a href="/boutique" className="homebutton">Découvrir</a>
+      <section className="hero-section">
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1>Bienvenue dans l'univers du Tufting</h1>
+            <p>
+              Envie d'ajouter une touche de douceur et de créativité à votre 
+              quotidien ? Je vous invite à découvrir mes créations uniques 
+              faites à la main.
+            </p>
+            <a href="/boutique" className="hero-button">Découvrir</a>
+          </div>
+          <div className="hero-image">
+            <img 
+              src={IMG}
+              alt="Création de tapis tufté" 
+            />
+          </div>
+        </div>
       </section>
 
       <Marquee speed={50} pauseOnHover={true} className="marquee-container">
