@@ -23,7 +23,7 @@ const Boutique = () => {
       name: "Thé vert",
       description: "Thé vert parfumé à la menthe.",
       image: "/assets/images/the.jpg"
-    }
+    },
   ];
 
   return (
