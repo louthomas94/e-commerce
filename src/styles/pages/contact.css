@@ -1,5 +1,94 @@
-.contact {
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.contact-container {
     display: flex;
+    min-height: 100vh;
+}
+
+
+.contact-image {
+    width: 50%;
+    background-image: url('../../assets/image.laine.png'); /* Chemin corrigé */
+    background-size: cover;
+    background-position: center;
+}
+
+
+.contact-form {
+    width: 50%;
+    padding: 40px;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+}
+
+.contact-form h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    border: none;
+    border-bottom: 2px solid #aaa;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-bottom: 2px solid purple;
+}
+
+.contact-form button {
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #5d00b3;
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    padding: 20px;
+    background-color: purple;
+    color: white;
+}
+
+
+footer a {
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
