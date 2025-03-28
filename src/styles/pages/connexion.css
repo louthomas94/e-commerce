@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,15 +11,13 @@ body, html {
     min-height: 100vh;
 }
 
-/* Section gauche avec l'image */
 .connexion-image {
     width: 50%;
-    background-image: url('../../assets/image.connexion.jpg'); /* Remplace par ton image */
+    background-image: url('../../assets/image.connexion.jpg');
     background-size: cover;
     background-position: center;
 }
 
-/* Section droite avec le formulaire */
 .connexion-form {
     width: 50%;
     padding: 40px;
@@ -71,4 +70,18 @@ body, html {
 
 .Fconnexion input[type="submit"]:hover {
     background-color: #5d00b3;
+}
+
+.Fconnexion .inscription-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.Fconnexion .inscription-link a {
+    color: purple;
+    text-decoration: none;
+}
+
+.Fconnexion .inscription-link a:hover {
+    text-decoration: underline;
 }
