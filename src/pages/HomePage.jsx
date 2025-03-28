@@ -1,14 +1,42 @@
 import React, { useState } from "react";
 import "../styles/pages/homepage.css";
-import Marquee from "react-fast-marquee";
 import IMG from "../assets/homepage/photo_home.png";
+import CustomerReview from "../components/CustomerReview";
+import ProductSlider from "../components/ProductSlider";
 
 const HomePage = () => {
-  const products = [
+  const wallArtProducts = [
     { id: 1, name: "Tapis Floral", image: "/img1.jpg" },
     { id: 2, name: "Coussin Tufté", image: "/img2.jpg" },
     { id: 3, name: "Miroir Tufté", image: "/img3.jpg" },
     { id: 4, name: "Tapis Arc-en-ciel", image: "/img4.jpg" },
+  ];
+
+  const decorProducts = [
+    { id: 5, name: "Coussin Décoratif", image: "/decor1.jpg" },
+    { id: 6, name: "Suspension Murale", image: "/decor2.jpg" },
+    { id: 7, name: "Tableau Textile", image: "/decor3.jpg" },
+  ];
+
+  const customerReviews = [
+    {
+      id: 1,
+      name: "Sophie L.",
+      image: "/avatar1.jpg",
+      review: "J'adore mes nouveaux tapis muraux ! Ils apportent tant de chaleur et de personnalité à mon salon."
+    },
+    {
+      id: 2,
+      name: "Marc T.",
+      image: "/avatar2.jpg",
+      review: "Un atelier tufting incroyable. J'ai appris une technique créative et reparti avec mon propre tapis."
+    },
+    {
+      id: 3,
+      name: "Émilie R.",
+      image: "/avatar3.jpg",
+      review: "Des produits de qualité et un service client exceptionnel. Je recommande à 100% !"
+    }
   ];
 
   const questions = [
@@ -57,29 +85,37 @@ const HomePage = () => {
           <div className="hero-text">
             <h1>Bienvenue dans l'univers du Tufting</h1>
             <p>
-              Envie d'ajouter une touche de douceur et de créativité à votre 
-              quotidien ? Je vous invite à découvrir mes créations uniques 
+              Envie d'ajouter une touche de douceur et de créativité à votre
+              quotidien ? Je vous invite à découvrir mes créations uniques
               faites à la main.
             </p>
             <a href="/boutique" className="hero-button">Découvrir</a>
           </div>
           <div className="hero-image">
-            <img 
+            <img
               src={IMG}
-              alt="Création de tapis tufté" 
+              alt="Création de tapis tufté"
             />
           </div>
         </div>
       </section>
 
-      <Marquee speed={50} pauseOnHover={true} className="marquee-container">
-        {products.map((product) => (
-          <div key={product.id} className="marquee-item">
-            <img src={product.image} alt={product.name} className="marquee-img" />
-            <p className="marquee-text">{product.name}</p>
-          </div>
-        ))}
-      </Marquee>
+      <ProductSlider category="Nos Tapis Muraux" products={wallArtProducts} />
+      <ProductSlider category="Décorations" products={decorProducts} />
+
+      <div className="customer-reviews-section">
+        <h2 className="reviews-title">Ce que nos clients disent</h2>
+        <div className="reviews-container">
+          {customerReviews.map((review) => (
+            <CustomerReview
+              key={review.id}
+              name={review.name}
+              image={review.image}
+              review={review.review}
+            />
+          ))}
+        </div>
+      </div>
 
       <div className="faq-container">
         <h2 className="faq-title">FAQ</h2>
