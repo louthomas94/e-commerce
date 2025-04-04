@@ -1,40 +1,142 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/pages/inscription.css";
 
+const formData = {
+    nom: 'cissokho',
+    prenom: 'abdoulaye',
+    email: 'abdoulaye@gmail.com',
+    nom_user: 'jygliyg',
+    mdp: 'Rapido',
+    inscription: 1
+  };
+  
+  console.log("Mot de passe :", formData.mdp); // Vérifiez que le mot de passe est bien dans formData
+
+
+  console.log(formData); // Vérifiez que toutes les données sont présentes
+  
+
+  
+  fetch('http://localhost/inscription.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+  .then(response => response.json())
+  .then(data => console.log('Réponse du serveur:', data))
+  .catch(error => console.log('Erreur:', error));
+  
+
 const Inscription = () => {
-    return (
-        <div className="inscription-container">
-            <div className="inscription-image"></div>
-            <div className="inscription-form">
-                <h1 className="Tinscription">Créer un compte</h1>
-                <form className="Finscription" action="" method="POST">
-                    <label>Nom</label>
-                    <input type="text" name="nom" required />
+  const [formData, setFormData] = useState({
+    nom: "",
+    prenom: "",
+    email: "",
+    nom_user: "",
+    mdp: "",
+    confirm_mdp: "",
+  });
 
-                    <label>Prénom</label>
-                    <input type="text" name="prenom" required />
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-                    <label>Email</label>
-                    <input type="email" name="email" required />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Formulaire soumis avec :", formData); // Vérifier les données envoyées
 
-                    <label>Nom d'utilisateur</label>
-                    <input type="text" name="nom_user" required />
+    if (formData.mdp !== formData.confirm_mdp) {
+      alert("Les mots de passe ne correspondent pas !");
+      return;
+    }
 
-                    <label>Mot de passe</label>
-                    <input type="password" name="mdp" required />
+    try {
+      const response = await fetch("http://localhost/inscription.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-                    <label>Confirmer le mot de passe</label>
-                    <input type="password" name="confirm_mdp" required />
+      const data = await response.json();
+      console.log("Réponse serveur :", data);
 
-                    <input type="submit" value="S'inscrire" name="boutton-valider" />
-                </form>
-                <div className="connexion-link">
-                    <p>Déjà un compte ?</p>
-                    <a href="/connexion">Connectez-vous ici !</a>
-                </div>
-            </div>
-        </div>
-    );
-}
+      if (data.success) {
+        alert("Inscription réussie !");
+      } else {
+        alert("Erreur : " + data.message);
+      }
+    } catch (error) {
+      console.error("Erreur lors de la requête :", error);
+    }
+  };
+
+  return (
+    <div className="inscription-container">
+      <div className="inscription-image"></div>
+      <div className="inscription-form">
+        <h1 className="Tinscription">Créer un compte</h1>
+        <form className="Finscription" onSubmit={handleSubmit}>
+          <label>Nom</label>
+          <input
+            type="text"
+            name="nom"
+            value={formData.nom}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Prénom</label>
+          <input
+            type="text"
+            name="prenom"
+            value={formData.prenom}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Nom d'utilisateur</label>
+          <input
+            type="text"
+            name="nom_user"
+            value={formData.nom_user}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Mot de passe</label>
+          <input
+            type="password"
+            name="mdp"
+            value={formData.mdp}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Confirmer le mot de passe</label>
+          <input
+            type="password"
+            name="confirm_mdp"
+            value={formData.confirm_mdp}
+            onChange={handleChange}
+            required
+          />
+
+          <input type="submit" value="S'inscrire" />
+        </form>
+      </div>
+    </div>
+  );
+};
 
 export default Inscription;

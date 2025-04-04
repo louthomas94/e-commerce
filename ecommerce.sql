@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 28 mars 2025 à 20:48
+-- Généré le : ven. 04 avr. 2025 à 12:33
 -- Version du serveur : 8.0.39
 -- Version de PHP : 8.2.12
 
@@ -33,7 +33,8 @@ CREATE TABLE `articles` (
   `description` text,
   `prix` decimal(10,2) NOT NULL,
   `stock` int NOT NULL,
-  `id_category` int DEFAULT NULL
+  `id_category` int DEFAULT NULL,
+  `images` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -136,9 +137,13 @@ CREATE TABLE `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `nom_user`, `mdp`) VALUES
 (1, 'cissokho', 'abdoulaye', 'abdoulaye@gmail.com', 'jygliyg', '$2y$10$hdlHKq/aqJoQrCgPBo4SeOJrfZbX7wfh5IIF3ZbvWobX57B6VPDDG'),
-(3, 'cissokho', 'abdoulaye', 'abdoulaye069@gmail.com', 'jygliym', '$2y$10$ytMjMGqjZ9EWUcuCZYwipeBckNLvlKAXMg2imn9UWX.H2eduRuG2C'),
 (4, 'thomas', 'lou', 'lou@gmail.com', 'lou94', '$2y$10$djc4BuzvpqbzEbkqC0XAcuLtCy3hQCj18TD3XmDk7xFn3k88x0ydC'),
-(5, 'thomas', 'lou', 'lou49@gmail.com', 'lou49', '$2y$10$dFDMobIW7ADzabGJdt/4ruaU8nMYLfk7ICzY7NNeCYgeta1MX.PWC');
+(5, 'thomas', 'lou', 'lou49@gmail.com', 'lou49', '$2y$10$dFDMobIW7ADzabGJdt/4ruaU8nMYLfk7ICzY7NNeCYgeta1MX.PWC'),
+(20, 'wague', 'mohamed', 'mohamed@gmail.com', 'momo_wague', '$2y$10$TCRtqIZaPuhS7sLnzdZSQOOnQYgPlw5gsH8Bc982CRcFBezl30/De'),
+(26, 'Bertone', 'Ethan', 'Ethan@gmail.com', 'qsergkhaùeobuhrt', '$2y$10$.hN3dPRjO938ggRukoO4sO5I2z.dPErMr8jj4yprq9T0NsmC7xOzO'),
+(28, 'gueye', 'balla', 'RBEBR@gmail.com', 'demdem', '$2y$10$AC8CJtMzTeS7ObvGoAEWRu.PJT7HrZywu9K2LF2cnWgCkMuINJaHq'),
+(31, 'pticon', 'adyan', 'adyan@gmail.com', 'uhgeorgzr', '$2y$10$e97/AltnMJM9V8ppnL588uOpr6NWXz3j6IE4l7e4lPKh7B7aLuHUu'),
+(37, 'Gaborit', 'Aurelien', 'aurelien@gmail.com', 'aurelius', '$2y$10$E52acI//87iKCkE6sxbZCe585J8IMFUIop3rNRFbzhKgkhEU0GldG');
 
 --
 -- Index pour les tables déchargées
@@ -232,7 +237,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Contraintes pour les tables déchargées
