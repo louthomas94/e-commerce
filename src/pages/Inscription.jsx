@@ -1,34 +1,6 @@
 import React, { useState } from "react";
 import "../styles/pages/inscription.css";
 
-const formData = {
-    nom: 'cissokho',
-    prenom: 'abdoulaye',
-    email: 'abdoulaye@gmail.com',
-    nom_user: 'jygliyg',
-    mdp: 'Rapido',
-    inscription: 1
-  };
-  
-  console.log("Mot de passe :", formData.mdp); // Vérifiez que le mot de passe est bien dans formData
-
-
-  console.log(formData); // Vérifiez que toutes les données sont présentes
-  
-
-  
-  fetch('http://localhost/inscription.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData),
-  })
-  .then(response => response.json())
-  .then(data => console.log('Réponse du serveur:', data))
-  .catch(error => console.log('Erreur:', error));
-  
-
 const Inscription = () => {
   const [formData, setFormData] = useState({
     nom: "",
@@ -45,7 +17,6 @@ const Inscription = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Formulaire soumis avec :", formData); // Vérifier les données envoyées
 
     if (formData.mdp !== formData.confirm_mdp) {
       alert("Les mots de passe ne correspondent pas !");
@@ -53,9 +24,13 @@ const Inscription = () => {
     }
 
     try {
-      const response = await fetch("http://localhost/inscription.php", {
+      delete formData.confirm_mdp;
+
+      const response = await fetch("http://localhost:8000/users/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
       });
 
@@ -65,10 +40,11 @@ const Inscription = () => {
       if (data.success) {
         alert("Inscription réussie !");
       } else {
-        alert("Erreur : " + data.message);
+        alert("Erreur : " + (data.message || "Une erreur est survenue."));
       }
     } catch (error) {
       console.error("Erreur lors de la requête :", error);
+      alert("Impossible de contacter le serveur.");
     }
   };
 
