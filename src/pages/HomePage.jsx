@@ -4,39 +4,50 @@ import IMG from "../assets/homepage/photo_home.png";
 import CustomerReview from "../components/CustomerReview";
 import ProductSlider from "../components/ProductSlider";
 
+import img1 from "../assets/img1.jpg";
+import img2 from "../assets/img2.jpg";
+import img3 from "../assets/img3.jpg";
+import img4 from "../assets/img4.jpg";
+import decor1 from "../assets/decor1.jpg";
+import decor2 from "../assets/decor2.jpg";
+import decor3 from "../assets/decor3.jpg";
+import avatar1 from "../assets/avatar1.jpg";
+import avatar2 from "../assets/avatar2.jpg";
+import avatar3 from "../assets/avatar3.jpg";
+
 const HomePage = () => {
   const wallArtProducts = [
-    { id: 1, name: "Tapis Floral", image: "/img1.jpg" },
-    { id: 2, name: "Coussin Tufté", image: "/img2.jpg" },
-    { id: 3, name: "Miroir Tufté", image: "/img3.jpg" },
-    { id: 4, name: "Tapis Arc-en-ciel", image: "/img4.jpg" },
+    { id: 1, name: "Tapis Floral", image: img1 },
+    { id: 2, name: "Coussin Tufté", image: img2 },
+    { id: 3, name: "Miroir Tufté", image: img3 },
+    { id: 4, name: "Tapis Arc-en-ciel", image: img4 },
   ];
 
   const decorProducts = [
-    { id: 5, name: "Coussin Décoratif", image: "/decor1.jpg" },
-    { id: 6, name: "Suspension Murale", image: "/decor2.jpg" },
-    { id: 7, name: "Tableau Textile", image: "/decor3.jpg" },
+    { id: 5, name: "Coussin Décoratif", image: decor1 },
+    { id: 6, name: "Suspension Murale", image: decor2 },
+    { id: 7, name: "Tableau Textile", image: decor3 },
   ];
 
   const customerReviews = [
     {
       id: 1,
       name: "Sophie L.",
-      image: "/avatar1.jpg",
-      review: "J'adore mes nouveaux tapis muraux ! Ils apportent tant de chaleur et de personnalité à mon salon."
+      image: avatar1,
+      review: "J'adore mes nouveaux tapis muraux ! Ils apportent tant de chaleur et de personnalité à mon salon.",
     },
     {
       id: 2,
       name: "Marc T.",
-      image: "/avatar2.jpg",
-      review: "Un atelier tufting incroyable. J'ai appris une technique créative et reparti avec mon propre tapis."
+      image: avatar2,
+      review: "Un atelier tufting incroyable. J'ai appris une technique créative et reparti avec mon propre tapis.",
     },
     {
       id: 3,
       name: "Émilie R.",
-      image: "/avatar3.jpg",
-      review: "Des produits de qualité et un service client exceptionnel. Je recommande à 100% !"
-    }
+      image: avatar3,
+      review: "Des produits de qualité et un service client exceptionnel. Je recommande à 100% !",
+    },
   ];
 
   const questions = [
