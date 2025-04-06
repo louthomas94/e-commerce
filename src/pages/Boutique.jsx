@@ -1,81 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import "../styles/pages/boutique.css"
+import React from 'react';
+import '../styles/pages/boutique.css';
+import { usePanier } from '../context/PanierContext';
 
-function Boutique() {
-  const [articles, setArticles] = useState([]);
-  const [panier, setPanier] = useState([]);
 
-  useEffect(() => {
-    fetch('/api/get_articles.php')
-      .then(res => res.json())
-      .then(data => setArticles(data))
-      .catch(err => console.error('Erreur chargement articles:', err));
-  }, []);
+import img1 from '../assets/img1.jpg';
+import img2 from '../assets/img2.jpg';
+import img3 from '../assets/img3.jpg';
+import img4 from '../assets/img4.jpg';
+import decor1 from '../assets/decor1.jpg';
+import decor2 from '../assets/decor2.jpg';
+import decor3 from '../assets/decor3.jpg';
 
-  const ajouterAuPanier = (article) => {
-    const exist = panier.find(a => a.id_article === article.id_article);
-    if (exist) {
-      setPanier(panier.map(a =>
-        a.id_article === article.id_article
-          ? { ...a, quantite: a.quantite + 1 }
-          : a
-      ));
-    } else {
-      setPanier([...panier, { ...article, quantite: 1 }]);
-    }
-  };
+const articles = [
+  { id: 1, nom: "Cœur violet", image: img1, description: "Un petit cœur doux et moelleux 💜", prix: 20 },
+  { id: 2, nom: "Burger", image: img2, description: "Un tapis burger fun et appétissant 🍔", prix: 25 },
+  { id: 3, nom: "Croissant", image: img3, description: "Un croissant du matin plein de bonne humeur 🥐", prix: 18 },
+  { id: 4, nom: "Pot rouge et violet", image: img4, description: "Cache-pot texturé violet et rouge ❤️💜", prix: 22 },
+  { id: 5, nom: "Pot turquoise et rose", image: decor1, description: "Cache-pot moelleux et flashy 🌈", prix: 22 },
+  { id: 6, nom: "Pot vert avec fleur", image: decor2, description: "Déco florale chic et douce 🌸", prix: 24 },
+  { id: 7, nom: "Atelier tufting", image: decor3, description: "Un aperçu de notre atelier 🧵", prix: 0 },
+];
 
-  const passerCommande = () => {
-    if (panier.length === 0) return alert("Le panier est vide !");
-    
-    fetch('/api/passer_commande.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ commande: panier, id_client: 1 }) // ← à adapter selon ton auth
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          alert("Commande passée !");
-          setPanier([]);
-        } else {
-          alert("Erreur lors de la commande.");
-        }
-      })
-      .catch(err => console.error('Erreur commande:', err));
-  };
+const Boutique = () => {
+  const { ajouterAuPanier } = usePanier();
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Boutique</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-        {articles.map(article => (
-          <div key={article.id_article} style={{ border: '1px solid #ccc', padding: '1rem', width: '250px' }}>
-            <h3>{article.nom_article}</h3>
+    <div className="boutique-container">
+      <h2>Boutique en ligne</h2>
+      <div className="grid-boutique">
+        {articles.map((article) => (
+          <div key={article.id} className="article-card">
+            <img src={article.image} alt={article.nom} className="article-img" />
+            <h3>{article.nom}</h3>
             <p>{article.description}</p>
-            <p><strong>{article.prix}€</strong></p>
-            <button onClick={() => ajouterAuPanier(article)}>Ajouter au panier</button>
+            {article.prix > 0 && (
+              <>
+                <p><strong>{article.prix} €</strong></p>
+                <button onClick={() => ajouterAuPanier(article)}>
+                  Ajouter au panier
+                </button>
+              </>
+            )}
           </div>
         ))}
       </div>
-
-      <hr style={{ margin: '2rem 0' }} />
-
-      <h3>Panier</h3>
-      {panier.length === 0 ? <p>Aucun article.</p> : (
-        <ul>
-          {panier.map(item => (
-            <li key={item.id_article}>
-              {item.nom_article} x {item.quantite}
-            </li>
-          ))}
-        </ul>
-      )}
-      <button onClick={passerCommande} disabled={panier.length === 0}>
-        Passer commande
-      </button>
     </div>
   );
-}
+};
 
 export default Boutique;

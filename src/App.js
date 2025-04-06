@@ -8,7 +8,7 @@ import Inscription from './pages/Inscription';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Panier from './pages/Panier';
-import { PanierProvider } from './context/PanierContext'; 
+import { PanierProvider } from './context/PanierContext';
 
 const App = () => {
   return (
@@ -30,6 +30,5 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
 
 export default App;

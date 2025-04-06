@@ -1,0 +1,50 @@
+.panier-container {
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .panier-liste {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .panier-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #ccc;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+  
+  .panier-item .nom {
+    font-weight: bold;
+    flex: 1;
+  }
+  
+  .panier-item .quantite {
+    margin: 0 1rem;
+  }
+  
+  .panier-total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-commander {
+    padding: 0.6rem 1.2rem;
+    background-color: #6a4bff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-commander:hover {
+    background-color: #4a30c9;
+  }
+  
