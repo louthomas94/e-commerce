@@ -12,11 +12,11 @@ import decor2 from '../assets/decor2.jpg';
 import decor3 from '../assets/decor3.jpg';
 
 const articles = [
-  { id: 1, nom: "Cœur violet", image: img1, description: "Un petit cœur doux et moelleux 💜", prix: 20 },
+  { id: 1, nom: "Cœur violet", image: img1, description: "Un petit cœur doux et moelleux", prix: 20 },
   { id: 2, nom: "Burger", image: img2, description: "Un tapis burger fun et appétissant 🍔", prix: 25 },
   { id: 3, nom: "Croissant", image: img3, description: "Un croissant du matin plein de bonne humeur 🥐", prix: 18 },
-  { id: 4, nom: "Pot rouge et violet", image: img4, description: "Cache-pot texturé violet et rouge ❤️💜", prix: 22 },
-  { id: 5, nom: "Pot turquoise et rose", image: decor1, description: "Cache-pot moelleux et flashy 🌈", prix: 22 },
+  { id: 4, nom: "Pot rouge et violet", image: img4, description: "Cache-pot texturé violet et rouge", prix: 22 },
+  { id: 5, nom: "Pot turquoise et rose", image: decor1, description: "Cache-pot moelleux et flashy", prix: 22 },
   { id: 6, nom: "Pot vert avec fleur", image: decor2, description: "Déco florale chic et douce 🌸", prix: 24 },
   { id: 7, nom: "Atelier tufting", image: decor3, description: "Un aperçu de notre atelier 🧵", prix: 0 },
 ];
