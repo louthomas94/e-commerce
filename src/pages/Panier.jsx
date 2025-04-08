@@ -1,6 +1,7 @@
 import React from 'react';
 import { usePanier } from '../context/PanierContext';
-import '../styles/pages/panier.css'; 
+import '../styles/pages/Panier.css';
+
 
 const Panier = () => {
   const { panier, viderPanier } = usePanier();

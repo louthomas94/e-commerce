@@ -40,7 +40,7 @@ const Inscription = () => {
       if (data.success) {
         alert("Inscription réussie !");
       } else {
-        alert("Erreur : " + (data.message || "Une erreur est survenue."));
+        alert("Erreur : " + (data.message || "inscription réussi"));
       }
     } catch (error) {
       console.error("Erreur lors de la requête :", error);

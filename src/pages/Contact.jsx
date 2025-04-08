@@ -3,7 +3,7 @@ import '../styles/pages/contact.css';
 const Contact = () => {
   return (
     <div className="contact-container">
-      <div className="contact-image"></div> {/* L'image d'arrière-plan */}
+      <div className="contact-image"></div> {}
       <div className="contact-form">
         <h1>Contact</h1>
         <p>Si vous souhaitez nous contacter, veuillez utiliser ce formulaire</p>
